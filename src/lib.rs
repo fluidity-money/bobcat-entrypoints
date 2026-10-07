@@ -76,7 +76,7 @@ pub enum Eip20Permit {
 #[cfg(feature = "alloc")]
 #[derive(Debug, Clone, PartialEq, EvmCdSerialise, EvmCdDeserialise)]
 #[evm_selector]
-pub enum Erc721 {
+pub enum Eip721 {
     BalanceOf {
         owner: EvmCdAddress,
     },

@@ -1,6 +1,6 @@
 [package]
 name = "bobcat-entrypoints"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2024"
 license = "MIT"
 description = "Entrypoint helper types for Stylus entrypoint code."
