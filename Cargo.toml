@@ -1,0 +1,15 @@
+[package]
+name = "bobcat-entrypoints"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+description = "Entrypoint helper types for Stylus entrypoint code."
+homepage = "https://fluiditylabs.io"
+repository = "https://github.com/fluidity-money/bobcat-entrypoints"
+
+[dependencies]
+bobcat-cd = { version = "0.11.7", features = ["derive"] }
+
+[features]
+default = ["alloc"]
+alloc = ["bobcat-cd/alloc"]
