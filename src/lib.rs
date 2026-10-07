@@ -1,5 +1,5 @@
 
-use bobcat_cd::{U, EvmCdAddress, EvmCdSerialise, EvmCdDeserialise};
+use bobcat_cd::{U, EvmCdAddress, EvmCdBytes, EvmCdSerialise, EvmCdDeserialise};
 
 #[derive(Debug, Clone, PartialEq, EvmCdSerialise, EvmCdDeserialise)]
 #[evm_selector]
@@ -73,10 +73,53 @@ pub enum Eip20Permit {
     DomainSeparator,
 }
 
+#[derive(Debug, Clone, PartialEq, EvmCdSerialise, EvmCdDeserialise)]
+#[evm_selector]
+pub enum Eip721DataSlice<const MAX_DATA: usize> {
+    BalanceOf {
+        owner: EvmCdAddress,
+    },
+    OwnerOf {
+        token_id: U,
+    },
+    SafeTransferFrom {
+        from: EvmCdAddress,
+        to: EvmCdAddress,
+        token_id: U,
+    },
+    #[evm_selector("safeTransferFrom(address,address,uint256,bytes)")]
+    SafeTransferFromWithData {
+        from: EvmCdAddress,
+        to: EvmCdAddress,
+        token_id: U,
+        data: EvmCdBytes<MAX_DATA>,
+    },
+    TransferFrom {
+        from: EvmCdAddress,
+        to: EvmCdAddress,
+        token_id: U,
+    },
+    Approve {
+        approved: EvmCdAddress,
+        token_id: U,
+    },
+    SetApprovalForAll {
+        operator: EvmCdAddress,
+        approved: bool,
+    },
+    GetApproved {
+        token_id: U,
+    },
+    IsApprovedForAll {
+        owner: EvmCdAddress,
+        operator: EvmCdAddress,
+    },
+}
+
 #[cfg(feature = "alloc")]
 #[derive(Debug, Clone, PartialEq, EvmCdSerialise, EvmCdDeserialise)]
 #[evm_selector]
-pub enum Eip721 {
+pub enum Eip721DataVec {
     BalanceOf {
         owner: EvmCdAddress,
     },
