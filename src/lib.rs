@@ -1,3 +1,4 @@
+#![no_std]
 
 use bobcat_cd::{U, EvmCdAddress, EvmCdBytes, EvmCdSerialise, EvmCdDeserialise};
 
