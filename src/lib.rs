@@ -205,7 +205,7 @@ pub enum Eip721MetadataDataSlice<const MAX_DATA: usize> {
     Name,
     Symbol,
     #[evm_selector("tokenURI(uint256)")]
-    TokenUri { token_uri: U }
+    TokenUri { token_id: U }
 }
 
 #[cfg(feature = "alloc")]
@@ -253,5 +253,5 @@ pub enum Eip721MetadataDataVec<const MAX_DATA: usize> {
     Name,
     Symbol,
     #[evm_selector("tokenURI(uint256)")]
-    TokenUri { token_uri: U }
+    TokenUri { token_id: U }
 }
